@@ -1,0 +1,20 @@
+.link{
+    text-decoration: none;
+    color:#234465;
+    margin:10px;
+}
+
+.origamiContainer{
+    display: inline-block;
+    width: 83%;
+    height: auto;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.origamiContainer>*>*{
+    margin-top:10%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+

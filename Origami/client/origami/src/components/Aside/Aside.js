@@ -1,5 +1,6 @@
-import Menu from "./MenuData";
 import React, { useState, useEffect } from "react";
+
+import Menu from "./MenuData";
 import MenuItem from "./MenuItem";
 
 import style from "./Aside.module.css";

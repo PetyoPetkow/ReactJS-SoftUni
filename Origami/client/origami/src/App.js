@@ -1,10 +1,11 @@
-import "./App.css";
+import { useEffect, useState } from "react";
 
 import Header from "./components/Header/Header";
 import Aside from "./components/Aside/Aside";
-import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
-import { useEffect, useState } from "react";
+import NavRoutes from "./routing/NavRoutes";
+
+import "./App.css";
 
 function App() {
   const [selectedPost, setSelectedPost] = useState();
@@ -33,7 +34,7 @@ function App() {
       <Header></Header>
       <div className="container">
         <Aside onMenuItemClick={onMenuItemClick}></Aside>
-        <Main posts={getPosts(selectedPost)}></Main>
+        <NavRoutes posts={getPosts(selectedPost)} />
       </div>
       <Footer></Footer>
     </>

@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-
 import style from "./Main.module.css";
 
 const Main = ({ posts }) => {
