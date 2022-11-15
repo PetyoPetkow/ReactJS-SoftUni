@@ -9,18 +9,19 @@ const OtherPetsList = () => {
   const params = useParams();
   let petsToShow = pets;
 
-  console.log(params);
+  console.log(petsToShow);
 
   useEffect(() => {
     OtherPetsService.getAll().then((result) => setPets(result));
+    petsToShow = pets;
   }, []);
 
-  if (params.category !== "All") {
+  if (params.category != undefined && params.category != "All") {
     petsToShow = pets.filter((pet) => {
       return pet.category === params.category;
     });
   }
-
+  console.log(petsToShow);
   return (
     <>
       <ul className="other-pets-list">

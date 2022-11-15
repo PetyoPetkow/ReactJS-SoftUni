@@ -224,18 +224,15 @@ const Main = () => {
       <section className="dashboard">
         <h1>Dashboard</h1>
         <MainNavigation />
-        <OtherPetsList />
+
         <Routes>
           <Route path="/" element={<OtherPetsList />}></Route>
+          <Route path="/categories" element={<OtherPetsList />}></Route>
+          <Route path="/categories/All" element={<OtherPetsList />}></Route>
           <Route
             path="/categories/:category"
             element={<OtherPetsList />}
           ></Route>
-          <Route
-            path="/categories/category/id"
-            element={<PetDetails />}
-          ></Route>
-          {/* <Raute path="/" element={<OtherPetsList />}></Raute> */}
         </Routes>
       </section>
       {/* <section class="my-pets">
