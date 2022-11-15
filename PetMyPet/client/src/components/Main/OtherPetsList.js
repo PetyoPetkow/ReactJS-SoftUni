@@ -1,32 +1,28 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 import { useParams } from "react-router-dom";
-
-import * as OtherPetsService from "../../services/OtherPetsService";
 
 const OtherPetsList = () => {
   const [pets, setPets] = useState([]);
   const params = useParams();
-  let petsToShow = pets;
-
-  console.log(petsToShow);
 
   useEffect(() => {
-    OtherPetsService.getAll().then((result) => setPets(result));
-    petsToShow = pets;
-  }, []);
+    if (params.category != undefined && params.category != "All") {
+      fetch(`http://localhost:5000/pets?category=${params.category}`)
+        .then((res) => res.json())
+        .then((result) => setPets(result));
+    } else {
+      fetch(`http://localhost:5000/pets`)
+        .then((res) => res.json())
+        .then((result) => setPets(result));
+    }
+  }, [params]);
 
-  if (params.category != undefined && params.category != "All") {
-    petsToShow = pets.filter((pet) => {
-      return pet.category === params.category;
-    });
-  }
-  console.log(petsToShow);
   return (
     <>
       <ul className="other-pets-list">
-        {petsToShow &&
-          petsToShow.map((pet) => {
+        {pets &&
+          pets.map((pet) => {
             return (
               <li key={pet.id} className="otherPet">
                 <h3>{pet.name}</h3>
